@@ -35,10 +35,18 @@ const Settings = ({ settings, updateSettings }) => {
     }
   }, [formData.darkMode]);
 
+
+  // Notification state
+  const [showNotif, setShowNotif] = useState(false);
+  const [notifTimeout, setNotifTimeout] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateSettings(formData);
-    alert('Settings saved successfully! ✨');
+    setShowNotif(true);
+    if (notifTimeout) clearTimeout(notifTimeout);
+    const timeout = setTimeout(() => setShowNotif(false), 3500);
+    setNotifTimeout(timeout);
   };
 
   const handleChange = (field, value) => {
@@ -48,6 +56,16 @@ const Settings = ({ settings, updateSettings }) => {
   return (
     <div className="settings-container">
       <h2 className="section-title">Settings</h2>
+
+      {/* Custom notification */}
+      {/* Fancy Toast Notification */}
+      <div className={`settings-toast-notif${showNotif ? ' show' : ''}`}>
+        <span className="material-icons notif-icon">check_circle</span>
+        <div className="notif-text">
+          <strong>Settings saved!</strong>
+          <div style={{ fontSize: '1rem', color: '#8B7765', marginTop: 2 }}>Your preferences are now up to date ✨</div>
+        </div>
+      </div>
 
       <div className="paper-card settings-card">
         <form onSubmit={handleSubmit}>

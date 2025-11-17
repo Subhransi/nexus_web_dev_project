@@ -4,7 +4,8 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:5001/api';
 
-const Timer = ({ subjects, addSubject, addSession, settings }) => {
+
+const Timer = ({ subjects, addSubject, addSession, settings, setTimerLocked }) => {
   // Timer state
   const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isActive, setIsActive] = useState(false);
@@ -33,6 +34,11 @@ const Timer = ({ subjects, addSubject, addSession, settings }) => {
   const [pendingRating, setPendingRating] = useState(3);
 
   const audioRef = useRef(null);
+
+  // Lock navigation when timer is running
+  useEffect(() => {
+    if (setTimerLocked) setTimerLocked(isActive || sessionInProgress);
+  }, [isActive, sessionInProgress, setTimerLocked]);
 
   // Update timer duration when mode/settings change
   useEffect(() => {

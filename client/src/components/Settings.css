@@ -1,3 +1,66 @@
+/* Fancy Toast Notification */
+.settings-toast-notif {
+  position: fixed;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  max-width: 90vw;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(90deg, #A8E6CF 0%, #FFFEF8 100%);
+  border: 2px solid #A8E6CF;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #A8E6CF55, 0 0 24px 0 #FFD93D55;
+  padding: 20px 38px;
+  font-size: 1.2rem;
+  font-family: 'Quicksand', sans-serif;
+  z-index: 1002;
+  opacity: 0;
+  pointer-events: none;
+  transition: top 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s, box-shadow 0.3s;
+}
+.settings-toast-notif.show {
+  top: 32px;
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 12px 40px 0 #A8E6CF99, 0 0 32px 0 #FFD93D99;
+  animation: toastGlow 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes toastGlow {
+  0% { box-shadow: 0 0 0 0 #A8E6CF00, 0 0 0 0 #FFD93D00; }
+  60% { box-shadow: 0 12px 40px 0 #A8E6CF99, 0 0 32px 0 #FFD93D99; }
+  100% { box-shadow: 0 8px 32px 0 #A8E6CF55, 0 0 24px 0 #FFD93D55; }
+}
+.settings-toast-notif .notif-icon {
+  color: #2D5F4C;
+  font-size: 2.5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px #A8E6CF88);
+  animation: notifPop 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes notifPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.settings-toast-notif .notif-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+@media (max-width: 600px) {
+  .settings-toast-notif {
+    min-width: 180px;
+    padding: 12px 8px;
+    font-size: 1rem;
+    gap: 8px;
+  }
+  .settings-toast-notif .notif-icon {
+    font-size: 2rem;
+  }
+}
 .settings-container {
   max-width: 800px;
   margin: 0 auto;

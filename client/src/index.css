@@ -241,6 +241,19 @@ label {
   box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
 }
 
+.nav-tab[disabled], .nav-tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+
+.lock-icon {
+  font-size: 18px;
+  margin-left: 6px;
+  color: #FFD93D;
+  vertical-align: middle;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .app-header h1 {

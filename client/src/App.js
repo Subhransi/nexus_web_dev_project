@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Timer from './components/Timer';
@@ -14,11 +15,14 @@ function App() {
   const [subjects, setSubjects] = useState([]);
   const [sessions, setSessions] = useState([]);
   const [settings, setSettings] = useState(null);
+  // Add timerLocked state for navigation lock
+  const [timerLocked, setTimerLocked] = useState(false);
 
   useEffect(() => {
     loadSubjects();
     loadSessions();
     loadSettings();
+    // eslint-disable-next-line
   }, []);
 
   // Apply theme based on settings.darkMode
@@ -119,7 +123,7 @@ function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'timer':
-        return <Timer subjects={subjects} addSubject={addSubject} addSession={addSession} settings={settings} />;
+        return <Timer subjects={subjects} addSubject={addSubject} addSession={addSession} settings={settings} setTimerLocked={setTimerLocked} />;
       case 'dashboard':
         return <Dashboard sessions={sessions} subjects={subjects} />;
       case 'history':
@@ -129,7 +133,7 @@ function App() {
       case 'settings':
         return <Settings settings={settings} updateSettings={updateSettings} />;
       default:
-        return <Timer subjects={subjects} addSubject={addSubject} addSession={addSession} settings={settings} />;
+        return <Timer subjects={subjects} addSubject={addSubject} addSession={addSession} settings={settings} setTimerLocked={setTimerLocked} />;
     }
   };
 
@@ -151,30 +155,38 @@ function App() {
         <button
           className={`nav-tab ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => setActiveTab('dashboard')}
+          disabled={timerLocked && activeTab !== 'dashboard'}
         >
           <span className="material-icons">dashboard</span>
           <span>Dashboard</span>
+          {timerLocked && activeTab !== 'dashboard' && <span className="material-icons lock-icon">lock</span>}
         </button>
         <button
           className={`nav-tab ${activeTab === 'history' ? 'active' : ''}`}
           onClick={() => setActiveTab('history')}
+          disabled={timerLocked && activeTab !== 'history'}
         >
           <span className="material-icons">history</span>
           <span>History</span>
+          {timerLocked && activeTab !== 'history' && <span className="material-icons lock-icon">lock</span>}
         </button>
         <button
           className={`nav-tab ${activeTab === 'subjects' ? 'active' : ''}`}
           onClick={() => setActiveTab('subjects')}
+          disabled={timerLocked && activeTab !== 'subjects'}
         >
           <span className="material-icons">label</span>
           <span>Subjects</span>
+          {timerLocked && activeTab !== 'subjects' && <span className="material-icons lock-icon">lock</span>}
         </button>
         <button
           className={`nav-tab ${activeTab === 'settings' ? 'active' : ''}`}
           onClick={() => setActiveTab('settings')}
+          disabled={timerLocked && activeTab !== 'settings'}
         >
           <span className="material-icons">settings</span>
           <span>Settings</span>
+          {timerLocked && activeTab !== 'settings' && <span className="material-icons lock-icon">lock</span>}
         </button>
       </nav>
 
