@@ -167,14 +167,3 @@ The design draws inspiration from Studio Ghibli's aesthetic:
 - Paper-like textures
 - Gentle animations
 
-## 📝 License
-
-MIT
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
----
-
-Made with ✨ and 🍅
