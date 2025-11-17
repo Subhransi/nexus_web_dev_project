@@ -24,7 +24,7 @@ A whimsical, Studio Ghibli-inspired Pomodoro study tracking application built wi
 
 1. **Clone the repository**
    ```bash
-   cd /Users/anjanaa/MyProjects/pomodoro-app
+   cd /Users/pomodoro-timer
    ```
 
 2. **Install dependencies**
