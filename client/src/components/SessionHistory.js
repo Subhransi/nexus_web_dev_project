@@ -75,7 +75,7 @@ const SessionHistory = ({ sessions, subjects, deleteSession }) => {
                 className="subject-badge" 
                 style={{ backgroundColor: session.subject.color }}
               >
-                {session.subject.name}
+                {subjectName}
               </div>
               
               <h3 className="session-topic">{session.topic}</h3>
