@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Timer.css';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5001/api';
+const API_URL = 'https://nexus-web-dev-project.onrender.com/api';
 
 
 const Timer = ({ subjects, addSubject, addSession, settings, setTimerLocked }) => {
