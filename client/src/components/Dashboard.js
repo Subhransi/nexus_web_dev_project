@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './Dashboard.css';
 
-const API_URL = 'http://localhost:5001/api';
+const API_URL = 'https://nexus-web-dev-project.onrender.com/api';
 
 const Dashboard = () => {
   const [weeklyStats, setWeeklyStats] = useState(null);
