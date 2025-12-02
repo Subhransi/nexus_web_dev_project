@@ -9,6 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const mongoURI = process.env.MONGODB_URI;
 
 if (!mongoURI) {
   console.error("❌ ERROR: MONGODB_URI is NOT set on Render");
