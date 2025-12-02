@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ✨ Study Sanctuary - Pomodoro Study Tracker
 
 A whimsical, Studio Ghibli-inspired Pomodoro study tracking application built with the MERN stack.
@@ -167,3 +168,9 @@ The design draws inspiration from Studio Ghibli's aesthetic:
 - Paper-like textures
 - Gentle animations
 
+=======
+
+  # FocusFlow Productivity App
+
+  
+>>>>>>> 5995181b27e20170ab986b4e1581d4fd5b41d460
