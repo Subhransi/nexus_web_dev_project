@@ -8,7 +8,7 @@ import SubjectManager from './components/SubjectManager';
 import Settings from './components/Settings';
 import axios from 'axios';
 
-const API_URL = 'https://nexus-web-dev-project.onrender.com//api';
+const API_URL = 'https://nexus-web-dev-project.onrender.com/api';
 
 function App() {
   const [activeTab, setActiveTab] = useState('timer');
